@@ -1,0 +1,7 @@
+<ul>
+  <% @applications.each do |application| %>
+    <li>
+      <%= link_to(application.id, application_path(application)) %>
+    </li>
+  <% end %>
+</ul>
