@@ -1,15 +1,4 @@
 $govuk-global-styles:       true;
-$govuk-image-url-function:  "govuk-image-url-function";
-$govuk-font-url-function:   "govuk-font-url-function";
-$govuk-images-path:         "govuk-frontend/govuk/assets/images/";
-$govuk-fonts-path:          "govuk-frontend/govuk/assets/fonts/";
-
-@function govuk-image-url-function($filename) {
-  @return font-url("#{$govuk-images-path}#{$filename}");
-}
-
-@function govuk-font-url-function($filename) {
-  @return font-url("#{$govuk-fonts-path}#{$filename}");
-}
-
+$govuk-image-url-function:  "image-url";
+$govuk-font-url-function:   "font-url";
 @import "govuk-frontend/govuk/all";

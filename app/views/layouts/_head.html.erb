@@ -1,0 +1,34 @@
+<head>
+  <meta charset="utf-8" />
+  <title>Southwark BOPS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="blue" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <%= favicon_link_tag "favicon.ico", sizes: "16x16 32x32 48x48" %>
+  <%= favicon_link_tag "govuk-mask-icon.svg", rel: "mask-icon", color: "blue", type: nil %>
+
+  <%= favicon_link_tag "govuk-apple-touch-icon-180x180.png",  rel: "apple-touch-icon",  sizes: "180x180" %>
+  <%= favicon_link_tag "govuk-apple-touch-icon-167x167.png",  rel: "apple-touch-icon",  sizes: "167x167" %>
+  <%= favicon_link_tag "govuk-apple-touch-icon-152x152.png",  rel: "apple-touch-icon",  sizes: "152x152" %>
+  <%= favicon_link_tag "govuk-apple-touch-icon.png",          rel: "apple-touch-icon" %>
+
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <!--[if !IE 8]><!-->
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <!--<![endif]-->
+
+  <!--[if IE 8]>
+    <%= stylesheet_link_tag 'application-ie8', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <![endif]-->
+
+  <!--[if lt IE 9]>
+    <%= javascript_include_tag "html5shiv/dist/html5shiv.min.js" %>
+  <![endif]-->
+
+  <meta property="og:image" content="&lt;<%= root_url %>&gt;/images/govuk-opengraph-image.png">
+</head>
