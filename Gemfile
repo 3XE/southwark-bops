@@ -10,7 +10,11 @@ gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5'
+#gem 'sass-rails', '~> 5'
+# sassc is 4x faster atm. NOTE: there may be compatibility issues
+# see: https://github.com/sass/libsass/issues
+# see: http://sass-compatibility.github.io/
+gem 'sassc-rails', '~> 2.1'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
