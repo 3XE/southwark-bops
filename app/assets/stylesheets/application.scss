@@ -2,3 +2,19 @@ $govuk-global-styles:       true;
 $govuk-image-url-function:  "image-url";
 $govuk-font-url-function:   "font-url";
 @import "govuk-frontend/govuk/all";
+
+.govuk-width-container {
+  max-width: 100%;
+  margin: 0 $govuk-gutter-half;
+
+  /* NOTE: copied from govuk-frontend source code */
+  @supports (margin: unquote("max(calc(0px))")) {
+    $gutter-safe-area-right: calc(#{$govuk-gutter-half} + env(safe-area-inset-right));
+    $gutter-safe-area-left: calc(#{$govuk-gutter-half} + env(safe-area-inset-left));
+
+    // Use max() to pick largest margin, default or with safe area
+    // Escaped due to Sass max() vs. CSS native max()
+    margin-right: unquote("max(#{$govuk-gutter-half}, #{$gutter-safe-area-right})");
+    margin-left: unquote("max(#{$govuk-gutter-half}, #{$gutter-safe-area-left})");
+  }
+}
