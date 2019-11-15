@@ -1,5 +1,9 @@
 <% content_for(:back_link, applications_path) %>
+<% content_for(:page_title, "Application #{@application.id}") %>
 
-<h1>Application <%= @application.id %></h1>
+<% content_for(:left_bar) do %>
+  <span class="govuk-caption-m">caption</span>
+  <h1 class="govuk-heading-m">Left bar heading</h1>
+<% end %>
 
 <%= table_recursive(@application) %>
