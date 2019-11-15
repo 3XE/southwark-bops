@@ -1,3 +1,5 @@
+<% content_for(:back_link, applications_path) %>
+
 <h1>Application <%= @application.id %></h1>
 
 <%= table_recursive(@application) %>

@@ -15,7 +15,9 @@
   <div class="govuk-width-container">
     <%= render partial: "/layouts/alpha_phase_banner" %>
 
-    <%= link_to "Back", "#", class: "govuk-back-link" %>
+    <% if content_for?(:back_link) %>
+      <%= link_to "Back", yield(:back_link), class: "govuk-back-link" %>
+    <% end %>
 
     <main class="govuk-main-wrapper app-main-class" id="main-content" role="main">
       <h1 class="govuk-heading-xl">Customised page template</h1>
