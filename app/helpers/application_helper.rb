@@ -17,4 +17,15 @@ module ApplicationHelper
       x
     end
   end
+
+  def yes_no_na(x)
+    case x
+    when nil
+      "N/A"
+    when false, 0, "0", /false/i, /no/i
+      "No"
+    else
+      "Yes"
+    end
+  end
 end

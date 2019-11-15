@@ -18,3 +18,9 @@ $govuk-font-url-function:   "font-url";
     margin-left: unquote("max(#{$govuk-gutter-half}, #{$gutter-safe-area-left})");
   }
 }
+
+.bops-left-bar {
+  @include govuk-media-query($from: desktop) {
+    border-right: 1px solid $govuk-border-colour;
+  }
+}

@@ -1,9 +1,103 @@
-<% content_for(:back_link, applications_path) %>
-<% content_for(:page_title, "Application #{@application.id}") %>
-
-<% content_for(:left_bar) do %>
-  <span class="govuk-caption-m">caption</span>
-  <h1 class="govuk-heading-m">Left bar heading</h1>
+<% content_for(:breadcrumbs) do %>
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <%= link_to "Applications", applications_path, class: "govuk-breadcrumbs__link" %>
+      </li>
+      <li class="govuk-breadcrumbs__list-item" aria-current="page">
+        <%= @application.reference %>
+      </li>
+    </ol>
+  </div>
 <% end %>
 
-<%= table_recursive(@application) %>
+<% content_for(:left_bar) do %>
+  <span class="govuk-caption-m">
+    <%= @application.reference %>
+  </span>
+  <h1 class="govuk-heading-m">
+    <% if application_address(@application).present? %>
+      <%= application_address(@application) %>
+    <% else %>
+      No address yet
+    <% end %>
+  </h1>
+
+  <p>
+    <%# TODO: attribute? %>
+    Application for full planning permission (householder) 
+  </p>
+
+  <h2 class="govuk-heading-s">
+    Summary of proposal
+  </h2>
+
+  <ul class="govuk-list govuk-list--bullet">
+    <% if @application.proposalFlow_hash %>
+      <% @application.proposalFlow_hash&.each do |proposal| %>
+        <li class="govuk-list__item">
+          <%= proposal["proposalName"] %>
+        </li>
+      <% end %>
+    <% else %>
+      <li class="govuk-list__item">
+        Nothing so far
+      </li>
+    <% end %>
+  </ul>
+
+  <h2 class="govuk-heading-s">
+    Property details
+  </h2>
+
+  <ul class="govuk-list govuk-list--bullet">
+    <li class="govuk-list__item">
+      <strong>Property type:</strong>
+      <%= @application.site_address&.property_type %>
+    </li>
+
+    <li class="govuk-list__item">
+      <strong>Listed building:</strong>
+      <%= yes_no_na(@application.site_constraints&.listed_building?) %>
+    </li>
+
+    <li class="govuk-list__item">
+      <strong>Conservation area:</strong>
+      <%= yes_no_na(@application.site_constraints&.conservation_area?) %>
+    </li>
+  </ul>
+<% end %>
+
+<span class="govuk-caption-xl">
+  <%# TODO: all "fast-track"? maybe say just "applications"? or derive from some attribute? %>
+  Fast-track application
+</span>
+<h1 class="govuk-heading-xl">
+  <%= @application.reference %>
+</h1>
+
+<h2 class="govuk-heading-l">
+  Assess proposal
+</h2>
+
+<ul class="govuk-list">
+  <li class="govuk-list__item">
+    <%= link_to "Summarise the proposal and add considerations", "#" %>
+  </li>
+  <li class="govuk-list__item">
+    <%= link_to "Assess the impact on the neighbouring amenity", "#" %>
+  </li>
+  <li class="govuk-list__item">
+    <%= link_to "Assess the impact on local design and heritage", "#" %>
+  </li>
+</ul>
+
+<h2 class="govuk-heading-l">
+  Make recommendation
+</h2>
+
+<ul class="govuk-list">
+  <li>
+    <%= link_to "Review assessment and submit recommendation", "#" %>
+  </li>
+</ul>

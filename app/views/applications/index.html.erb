@@ -1,7 +1,46 @@
-<ul>
-  <% @applications.each do |application| %>
-    <li>
-      <%= link_to(application.id, application_path(application)) %>
-    </li>
-  <% end %>
-</ul>
+<% content_for(:breadcrumbs) do %>
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        Applications
+      </li>
+    </ol>
+  </div>
+<% end %>
+
+<h1 class="govuk-heading-xl">
+  Applications
+</h1>
+
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Reference</th>
+      <th scope="col" class="govuk-table__header">Address</th>
+      <th scope="col" class="govuk-table__header">Free text description</th>
+      <th scope="col" class="govuk-table__header">Created at</th>
+      <th scope="col" class="govuk-table__header">Updated at</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <% @applications.each do |application| %>
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">
+          <%= link_to(application.reference, application_path(application)) %>
+        </th>
+        <td class="govuk-table__cell">
+          <%= application_address(application) %>
+        </td>
+        <td class="govuk-table__cell">
+          <%= application.free_text_description %>
+        </td>
+        <td class="govuk-table__cell">
+          <%= l(application.created_at.to_date) if application.created_at.present? %>
+        </td>
+        <td class="govuk-table__cell">
+          <%= l(application.updated_at.to_date) if application.updated_at.present? %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
