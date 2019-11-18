@@ -1,24 +1,48 @@
-# README
+Southwark BOPS
+==============
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the Southwark BOPS (Back Office Planning System), prototype.
 
-Things you may want to cover:
 
-* Ruby version
+Configuration
+-------------
 
-* System dependencies
+### Hackney SMPA API key
 
-* Configuration
+To login, run:
 
-* Database creation
+```sh
+curl \
+  -F email=$email \
+  -F password=$password \
+  https://smpaapi.hactar.is/api/v1/auth
+```
 
-* Database initialization
+then the output should contain:
 
-* How to run the test suite
+```json
+{
+  "message": "login successful!",
+  "jwt": "__VERY_LONG_API_KEY__"
+  "user": {
+    ...
+  }
+}
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+then export the API key to your environment or put it into your .env.local
+file:
 
-* Deployment instructions
+```sh
+export SMPA_API_KEY=__VERY_LONG_API_KEY__
+```
 
-* ...
+
+Running
+-------
+
+As a regular rails app, running the following line should do the trick:
+
+```sh
+bundle exec rails s
+```
