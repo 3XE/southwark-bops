@@ -76,40 +76,62 @@
   <%= @application.reference %>
 </h1>
 
-<h2 class="govuk-heading-l">
-  Assess proposal
-</h2>
-
-<ul class="govuk-list">
-  <li class="govuk-list__item">
-    <%= link_to "Summarise the proposal and add considerations", "#" %>
-  </li>
-  <li class="govuk-list__item">
-    <%= link_to "Assess the impact on the neighbouring amenity", "#" %>
-  </li>
-  <li class="govuk-list__item">
-    <%= link_to "Assess the impact on local design and heritage", "#" %>
-  </li>
-</ul>
-
-<h2 class="govuk-heading-l">
-  Make recommendation
-</h2>
-
-<ul class="govuk-list">
-  <li>
-    <%= link_to "Review assessment and submit recommendation", "#" %>
-  </li>
-</ul>
-
-<h2 class="govuk-heading-l">
-  Documents
-</h2>
-
-<ul class="govuk-list">
-  <% @application.document_files.each do |document| %>
-    <li>
-      <%= link_to document.original_name, document_path(document.id) %>
+<div class="govuk-tabs" data-module="govuk-tabs">
+  <h2 class="govuk-tabs__title">
+    Contents
+  </h2>
+  <ul class="govuk-tabs__list">
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#actions">
+        Actions
+      </a>
     </li>
-  <% end %>
-</ul>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#documents">
+        Documents
+      </a>
+    </li>
+  </ul>
+
+  <section class="govuk-tabs__panel" id="actions">
+    <h2 class="govuk-heading-l">
+      Assess proposal
+    </h2>
+
+    <ul class="govuk-list">
+      <li class="govuk-list__item">
+        <%= link_to "Summarise the proposal and add considerations", "#" %>
+      </li>
+      <li class="govuk-list__item">
+        <%= link_to "Assess the impact on the neighbouring amenity", "#" %>
+      </li>
+      <li class="govuk-list__item">
+        <%= link_to "Assess the impact on local design and heritage", "#" %>
+      </li>
+    </ul>
+
+    <h2 class="govuk-heading-l">
+      Make recommendation
+    </h2>
+
+    <ul class="govuk-list">
+      <li>
+        <%= link_to "Review assessment and submit recommendation", "#" %>
+      </li>
+    </ul>
+  </section>
+
+  <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="documents">
+    <h2 class="govuk-heading-l">
+      Documents
+    </h2>
+
+    <ul class="govuk-list">
+      <% @application.document_files.each do |document| %>
+        <li>
+          <%= link_to document.original_name, document_path(document.id), data: { turbolinks: false } %>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+</div>
