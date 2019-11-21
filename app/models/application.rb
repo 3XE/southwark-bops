@@ -1,4 +1,6 @@
 class Application < SmpaResource
+  has_many :document_files, class_name: :Document
+
   class SiteConstraints < SmpaResource
     def conservation_area?
       0 < nb_conarea.to_i

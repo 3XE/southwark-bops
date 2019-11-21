@@ -101,3 +101,15 @@
     <%= link_to "Review assessment and submit recommendation", "#" %>
   </li>
 </ul>
+
+<h2 class="govuk-heading-l">
+  Documents
+</h2>
+
+<ul class="govuk-list">
+  <% @application.document_files.each do |document| %>
+    <li>
+      <%= link_to document.original_name, document_path(document.id) %>
+    </li>
+  <% end %>
+</ul>
