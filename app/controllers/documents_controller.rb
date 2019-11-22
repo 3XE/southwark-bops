@@ -12,8 +12,7 @@ class DocumentsController < ApplicationController
 
       http.request(request) do |response|
         headers["Content-Type"]   = response["Content-Type"]
-        headers["Content-Length"] = response["Content-Length"]
-        headers["Content-Disposition"] = "attachment; filename=#{@document.original_name}"
+        headers["Content-Disposition"] = "attachment; filename=#{@document.original_name.inspect}"
         self.response_body = response.read_body
       end
     end
