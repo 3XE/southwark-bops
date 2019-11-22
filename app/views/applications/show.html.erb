@@ -129,6 +129,7 @@
     <ul class="govuk-list">
       <% @application.document_files.each do |document| %>
         <li>
+          <%= image_tag document_thumbnail_path(document.id) %>
           <%= link_to document.original_name, document_path(document.id), data: { turbolinks: false } %>
         </li>
       <% end %>
