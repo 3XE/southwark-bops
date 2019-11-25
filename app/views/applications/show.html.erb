@@ -126,13 +126,49 @@
       Documents
     </h2>
 
-    <ul class="govuk-list">
-      <% @application.document_files.each do |document| %>
-        <li>
-          <%= image_tag document_thumbnail_path(document.id) %>
-          <%= link_to document.original_name, document_path(document.id), data: { turbolinks: false } %>
-        </li>
-      <% end %>
-    </ul>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Thumbnail</th>
+          <th scope="col" class="govuk-table__header">Original name</th>
+          <th scope="col" class="govuk-table__header">Proposed tags</th>
+          <th scope="col" class="govuk-table__header">Existing tags</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <% @application.document_files.each do |document| %>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <%= link_to(document_path(document.id), data: {turbolinks: false}) do %>
+                <%= image_tag document_thumbnail_path(document.id) %><br>
+              <% end %>
+            </td>
+
+            <td class="govuk-table__cell">
+              <%= link_to(document_path(document.id), data: {turbolinks: false}) do %>
+                <%= document.original_name %>
+              <% end %>
+            </td>
+
+            <td class="govuk-table__cell">
+              <% document.document_types_existing.select(&:name).each do |type| %>
+                <strong class="govuk-tag">
+                  <%= type.name %>
+                </strong>
+              <% end %>
+            </td>
+
+            <td class="govuk-table__cell">
+              <% document.document_types_proposed.select(&:name).each do |type| %>
+                <strong class="govuk-tag">
+                  <%= type.name %>
+                </strong>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
   </section>
 </div>
