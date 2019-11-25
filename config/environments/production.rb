@@ -25,6 +25,16 @@ Rails.application.configure do
   # Compress CSS using a preprocessor.
   # config.assets.css_compressor = :sass
 
+  # HACK
+  #
+  # Disable compression as it breaks govuk-frontend with libsass
+  # saying:
+  #
+  #   Error: "calc(0px)" is not a number for `max'
+  #
+  # See: https://github.com/alphagov/govuk-frontend/issues/1350#issuecomment-493129270
+  config.assets.css_compressor = nil
+
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
 
