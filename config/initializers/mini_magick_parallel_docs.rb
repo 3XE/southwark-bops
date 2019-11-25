@@ -9,7 +9,7 @@ module MiniMagick
 
       def read(stream, ext = nil)
         if /(doc|xls|ppt)/ =~ ext
-          $mini_magick_mutex.synchronize { read_orig(stream, ext) }
+          $mini_magick_mutex.synchronize { sleep(1); read_orig(stream, ext) }
         else
           read_orig(stream, ext)
         end
