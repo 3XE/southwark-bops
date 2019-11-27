@@ -16,4 +16,6 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 Rails.application.config.assets.precompile << 'application-ie8.css'
 Rails.application.config.assets.precompile << 'govuk-frontend/govuk/assets/*'
+Rails.application.config.assets.precompile << 'leaflet/dist/leaflet.css'
+Rails.application.config.assets.precompile << 'leaflet/dist/images/*'
 Rails.application.config.assets.precompile << 'html5shiv/dist/html5shiv.min.js'
