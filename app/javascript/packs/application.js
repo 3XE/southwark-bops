@@ -15,6 +15,9 @@ window.GOVUKFrontend = GOVUKFrontend
 const L = require("leaflet")
 window.L = L
 
+map = require("map");
+window.map_init = map.map_init;
+
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.

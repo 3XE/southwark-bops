@@ -1,0 +1,9 @@
+<div id="<%= id %>">
+</div>
+
+<%# TODO: make this unobstrusive %>
+<script>
+  map_init("<%= id %>", <%= sanitize(geojson.to_json) %>, {
+    mapbox_access_token: "<%= ENV["MAPBOX_ACCESS_TOKEN"] %>"
+  });
+</script>
