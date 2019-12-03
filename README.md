@@ -28,6 +28,8 @@ Variable                | Description
 ----------------------- | ---------------------
 `SMPA_API_KEY`          | Hackney SMPA api key
 `MAPBOX_ACCESS_TOKEN`   | Mapbox access token
+`BASIC_AUTH_USER`       | Username to login to app (blank to allow public)
+`BASIC_AUTH_PASS`       | Password to login to app (blank to allow public)
 
 
 Running
