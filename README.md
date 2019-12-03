@@ -1,41 +1,33 @@
 Southwark BOPS
 ==============
 
-This is the Southwark BOPS (Back Office Planning System), prototype.
+This Southwark BOPS (Back Office Planning System) prototype is a proof of
+concept of integration with the Hackney SMPA (Submit My Planning Application).
+
+It is capable of displaying a list of all applications exposed on the SMPA API
+and giving some details for each of them:
+
+* summary of proposal
+* property details:
+  - address
+  - property type
+  - whether it's a listed building
+  - whether it's in a conservation area
+* map with property boundaries
+* uploaded documents
 
 
 Configuration
 -------------
 
-### Hackney SMPA API key
+### Environment variables
 
-To login, run:
+The following environment variables must be present:
 
-```sh
-curl \
-  -F email=$email \
-  -F password=$password \
-  https://smpaapi.hactar.is/api/v1/auth
-```
-
-then the output should contain:
-
-```json
-{
-  "message": "login successful!",
-  "jwt": "__VERY_LONG_API_KEY__"
-  "user": {
-    ...
-  }
-}
-```
-
-then export the API key to your environment or put it into your .env.local
-file:
-
-```sh
-export SMPA_API_KEY=__VERY_LONG_API_KEY__
-```
+Variable                | Description
+----------------------- | ---------------------
+`SMPA_API_KEY`          | Hackney SMPA api key
+`MAPBOX_ACCESS_TOKEN`   | Mapbox access token
 
 
 Running
