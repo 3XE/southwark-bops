@@ -32,6 +32,27 @@ Variable                | Description
 `BASIC_AUTH_PASS`       | Password to login to app (blank to allow public)
 
 
+### Automatically update SMPA API key on Heroku
+
+In case you are running under Heroku and need to automatically update the SMPA
+API key, you can use the script in `bin/update-smpa-api-key-on-heroku.sh`. It
+requires some variables to be set:
+
+Variable                | Description
+----------------------- | ---------------------
+`HEROKU_API_KEY`        | Hackney SMPA api key
+`HEROKU_APP_NAME`       | Name of the Heroku app to have the environment updated
+`SMPA_EMAIL`            | Email to login to SMPA backend
+`SMPA_PASSWORD`         | Password to login to SMPA backend
+
+You're probably interested in adding it to the heroku scheduler addon:
+
+```sh
+heroku addons:create scheduler:standard
+heroku addons:open scheduler
+```
+
+
 Running
 -------
 
