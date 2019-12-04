@@ -5,6 +5,10 @@ ruby '~> 2.6.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.1'
+# FIXME: Revert sprockets to 3.7.2 to fix segfault. Seems to be related to sprockets,
+# libsass and linux kernel. It crashes on Heroku and on my machine.
+# see: https://github.com/rails/sprockets/issues/633
+gem 'sprockets', '~> 3.7.2'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3', '~> 1.4'
 gem 'pg'
