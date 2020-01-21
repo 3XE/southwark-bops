@@ -26,7 +26,7 @@ The following environment variables must be present:
 
 Variable                | Description
 ----------------------- | ---------------------
-`SMPA_API_KEY`          | Hackney SMPA api key
+`SMPA_API_KEY`          | Hackney SMPA API key
 `MAPBOX_ACCESS_TOKEN`   | Mapbox access token
 `BASIC_AUTH_USER`       | Username to login to app (blank to allow public)
 `BASIC_AUTH_PASS`       | Password to login to app (blank to allow public)
@@ -40,7 +40,7 @@ requires some variables to be set:
 
 Variable                | Description
 ----------------------- | ---------------------
-`HEROKU_API_KEY`        | Hackney SMPA api key
+`HEROKU_API_KEY`        | Heroku API key
 `HEROKU_APP_NAME`       | Name of the Heroku app to have the environment updated
 `SMPA_EMAIL`            | Email to login to SMPA backend
 `SMPA_PASSWORD`         | Password to login to SMPA backend
