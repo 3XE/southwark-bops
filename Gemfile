@@ -13,7 +13,7 @@ gem 'sprockets', '~> 3.7.2'
 #gem 'sqlite3', '~> 1.4'
 gem 'pg'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 # Use SCSS for stylesheets
 #gem 'sass-rails', '~> 5'
 # sassc is 4x faster atm. NOTE: there may be compatibility issues
